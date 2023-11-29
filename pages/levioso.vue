@@ -1,0 +1,18 @@
+<template>
+  <TresCanvas window-size>
+    <TresPerspectiveCamera :position="[0, 0, 10]" />
+    <Levioso v-bind="leviosoState">
+      <Octahedron :position="[0, 0, 0]">
+        <TresMeshNormalMaterial />
+      </Octahedron>
+    </Levioso>
+  </TresCanvas>
+</template>
+
+<script setup>
+const leviosoState = shallowReactive({
+  speed: 5,
+  rotationFactor: 1,
+  floatFactor: 5
+})
+</script>
