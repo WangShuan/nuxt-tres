@@ -1,13 +1,11 @@
 <template>
   <TresCanvas window-size>
     <TresPerspectiveCamera />
-    <TresMesh>
+    <TresMesh :rotation="[3, 0, 5]">
       <Tetrahedron>
         <TresMeshNormalMaterial />
       </Tetrahedron>
     </TresMesh>
-    <Stars />
-    <!-- 添加 OrbitControls 元件 -->
     <OrbitControls />
   </TresCanvas>
 </template>
