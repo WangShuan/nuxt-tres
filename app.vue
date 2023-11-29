@@ -1,14 +1,15 @@
 <template>
   <header>
     <nav>
-      <NuxtLink to="/">基本使用</NuxtLink>
+      <NuxtLink to="/">init</NuxtLink>
       <NuxtLink to="/loop">onLoop</NuxtLink>
-      <NuxtLink to="/control">OrbitControls</NuxtLink>
+      <NuxtLink to="/orbitcontrol">OrbitControls</NuxtLink>
       <NuxtLink to="/mouse">MouseParallax</NuxtLink>
       <NuxtLink to="/text3d">Text 3D</NuxtLink>
       <NuxtLink to="/levioso">Levioso</NuxtLink>
       <NuxtLink to="/scroll">ScrollControls</NuxtLink>
       <NuxtLink to="/texture">useLoader</NuxtLink>
+      <NuxtLink to="/gltf">useGLTF</NuxtLink>
     </nav>
   </header>
   <NuxtPage :key="$route.fullPath" />
@@ -39,7 +40,7 @@ header {
 
 header nav {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   justify-content: center;
 }
 
