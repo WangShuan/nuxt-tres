@@ -1,14 +1,15 @@
 <template>
+  <Title>Tres.js Texture 用法</Title>
   <TresCanvas window-size>
     <TresPerspectiveCamera :position="[0, 0, 30]" />
     <Suspense>
-      <TexturedMBall />
+      <RedMatcapBall />
     </Suspense>
     <Suspense>
-      <TexturedBall />
+      <RockMatcapBall />
     </Suspense>
     <Suspense>
-      <TexturedMBall2 />
+      <WaterMatcapBall />
     </Suspense>
     <Stars />
     <OrbitControls />

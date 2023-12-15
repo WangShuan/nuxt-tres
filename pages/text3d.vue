@@ -1,4 +1,5 @@
 <template>
+  <Title>Tres.js Text3D 用法</Title>
   <TresCanvas window-size>
     <TresPerspectiveCamera :position="[0, 0, 10]" />
     <Suspense>

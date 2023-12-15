@@ -1,4 +1,5 @@
 <template>
+  <Title>Tres.js 滑鼠視差效果(MouseParallax)</Title>
   <TresCanvas window-size>
     <TresPerspectiveCamera :position="[0, 0, 3]" />
     <TresMesh :rotation="[-Math.PI / 5, 0, Math.PI / 3]">

@@ -1,17 +1,5 @@
-<script setup lang="ts">
-const groupRef = shallowRef()
-const progress = ref(0)
-const { onLoop } = useRenderLoop()
-onLoop(() => {
-  if (groupRef.value) {
-    groupRef.value.rotation.x = progress.value * 5
-    groupRef.value.rotation.y = progress.value * 5
-    groupRef.value.rotation.z = progress.value * 5
-  }
-})
-</script>
-
 <template>
+  <Title>Tres.js 滾動控制 animate loop(ScrollControls)</Title>
   <div class="tres">
     <TresCanvas class="tres">
       <TresPerspectiveCamera :position="[0, 0, 4]" />
@@ -39,3 +27,16 @@ onLoop(() => {
     </section>
   </main>
 </template>
+
+<script setup lang="ts">
+const groupRef = ref()
+const progress = ref(0)
+const { onLoop } = useRenderLoop()
+onLoop(() => {
+  if (groupRef.value) {
+    groupRef.value.rotation.x = progress.value * 3
+    groupRef.value.rotation.y = progress.value * 3
+    groupRef.value.rotation.z = progress.value * 3
+  }
+})
+</script>

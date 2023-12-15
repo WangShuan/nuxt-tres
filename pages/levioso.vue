@@ -1,4 +1,5 @@
 <template>
+  <Title>Tres.js 漂浮效果(Levioso)</Title>
   <TresCanvas window-size>
     <TresPerspectiveCamera :position="[0, 0, 10]" />
     <Levioso v-bind="leviosoState">

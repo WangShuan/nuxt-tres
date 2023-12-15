@@ -1,4 +1,5 @@
 <template>
+  <Title>Tres.js 載入 GLTF 模型方法</Title>
   <TresCanvas window-size>
     <TresPerspectiveCamera :position="[0, 0, 300]" />
     <Suspense>
@@ -20,7 +21,7 @@
 
 <script setup>
 const { scene: model, animations } = await useGLTF(
-  '/multiclip.gltf',
+  '/models/robot/multiclip.gltf',
 )
 
 model.position.y = -70

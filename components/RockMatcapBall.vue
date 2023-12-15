@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 const pbrTexture = await useTexture({
   map: '/textures/Rock035_2K_Displacement.jpg',
   displacementMap: '/textures/Rock035_2K_Displacement.jpg',
@@ -9,8 +9,8 @@ const pbrTexture = await useTexture({
 </script>
 
 <template>
-  <TresMesh :position="[2, 5, 7]">
-    <TresSphereGeometry :args="[1, 100, 100]" />
-    <TresMeshStandardMaterial v-bind="pbrTexture" displacement-scale="0.2" />
+  <TresMesh :position="[1, 3, 5]">
+    <TresSphereGeometry :args="[1.2, 100, 100]" />
+    <TresMeshStandardMaterial v-bind="pbrTexture" :displacement-scale="0.1" />
   </TresMesh>
 </template>

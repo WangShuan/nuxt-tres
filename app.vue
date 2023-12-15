@@ -10,6 +10,7 @@
       <NuxtLink to="/scroll">ScrollControls</NuxtLink>
       <NuxtLink to="/texture">useLoader</NuxtLink>
       <NuxtLink to="/gltf">useGLTF</NuxtLink>
+      <NuxtLink to="/game">game</NuxtLink>
     </nav>
   </header>
   <NuxtPage :key="$route.fullPath" />
