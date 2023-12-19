@@ -1,7 +1,7 @@
 <template>
   <Title>Tres.js 載入 GLTF 模型方法</Title>
   <TresCanvas window-size>
-    <TresPerspectiveCamera :position="[0, 0, 300]" />
+    <TresPerspectiveCamera :position="[0, 0, 10]" />
     <Suspense>
       <primitive :object="model" />
     </Suspense>
@@ -9,22 +9,19 @@
     <TresDirectionalLight :position="[0, 2, 4]" :intensity="2" cast-shadow />
   </TresCanvas>
   <div class="btns">
-    <button @click="playAction('idle')">idle</button>
-    <button @click="playAction('skate')">skate</button>
-    <button @click="playAction('snap')">snap</button>
-    <button @click="playAction('shoot')">shoot</button>
-    <button @click="playAction('rocketBoot')">rocketBoot</button>
-    <button @click="playAction('groundPound')">groundPound</button>
-    <button @click="playAction('dance')">dance</button>
+    <button @click="playAction('0TPose')">TPose</button>
+    <button @click="playAction('Grabbed')">Grabbed</button>
+    <button @click="playAction('Greeting')">Greeting</button>
+    <button @click="playAction('Iddle')">Iddle</button>
   </div>
 </template>
 
 <script setup>
 const { scene: model, animations } = await useGLTF(
-  '/models/robot/multiclip.gltf',
+  '/models/ugly-naked-bunny.gltf',
 )
 
-model.position.y = -70
+model.position.y = -2
 
 const { actions } = useAnimations(animations, model)
 const currentAction = ref()
