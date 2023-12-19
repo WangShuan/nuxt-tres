@@ -6,6 +6,8 @@
       <TresCapsuleGeometry :args="[0.2, 0.5, 4, 8]" />
       <TresMeshNormalMaterial />
     </TresMesh>
-    <MouseParallax :factor="1" :ease="3" />
+    <Suspense>
+      <MouseParallax :factor="1" :ease="3" />
+    </Suspense>
   </TresCanvas>
 </template>
