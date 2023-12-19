@@ -3,7 +3,7 @@
     <Levioso v-bind="leviosoState">
       <primitive ref="planeRef" :object="model" />
     </Levioso>
-    <TresMesh v-for="(o, i) in obstacles" :key="o" :position="[o.x, o.y, o.z]" :rotate-z="o.x / 100">
+    <TresMesh v-for="(o, i) in obstacles" :key="i" :position="[o.x, o.y, o.z]" :rotate-z="o.x / 100">
       <TresBoxGeometry :args="[0.08, 0.08, 0.08]" />
       <TresMeshToonMaterial color="red" />
     </TresMesh>
@@ -52,7 +52,7 @@ for (let i = 0; i < 300; i++) {
 
 // 建立速率用的參數（用來讓障礙物隨時間加速移動）
 const speedIncrement = 0.001;
-let currentSpeed = 0.1;
+let currentSpeed = 0.5;
 
 const { onLoop } = useRenderLoop();
 
@@ -73,7 +73,7 @@ onLoop(({ delta }) => {
     px.forEach(x => {
       p.x = p.x + x;
       obstacles.value.forEach((e, i) => {
-        if (calculateDistance(p, e) < 0.05) {
+        if (calculateDistance(p, e) < 0.04) {
           gameover.value = true
           emit('setGameover', true)
         }
@@ -91,19 +91,22 @@ onLoop(({ delta }) => {
   // 處理子彈
   if (bullets.value.length > 0) {
     // 讓子彈一直往 x 方向移動
-    bullets.value.forEach((e, i) => {
-      bullets.value[i].x += delta * 2
-    })
+    bullets.value.forEach((bullet, i) => {
+      if (bullet) {
+        bullets.value[i].x += delta * 2;
+      }
+    });
 
     // 判斷子彈是否有撞到障礙物，清除子彈與障礙物
-    obstacles.value.forEach((e, j) => {
-      bullets.value.forEach((e, i) => {
-        if (calculateDistance(bullets.value[i], obstacles.value[j]) < 0.05) {
+    obstacles.value.forEach((obstacle, j) => {
+      bullets.value.forEach((bullet, i) => {
+        if (bullet && obstacle && calculateDistance(bullet, obstacle) < 0.05) {
+          console.log(calculateDistance(bullet, obstacle))
           bullets.value.splice(i, 1);
           obstacles.value.splice(j, 1);
         }
       });
-    })
+    });
   }
 });
 
@@ -140,7 +143,7 @@ function handleKeypress(e) {
 setInterval(() => {
   for (let i = 0; i < 100; i++) {
     obstacles.value.push({
-      x: getRandomCoordinate() + 10,
+      x: getRandomCoordinate() + 15,
       y: getRandomCoordinate(),
       z: 0
     })
