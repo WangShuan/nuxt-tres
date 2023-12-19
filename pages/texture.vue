@@ -11,7 +11,7 @@
     <Suspense>
       <WaterMatcapBall />
     </Suspense>
-    <Stars />
+    <Stars :radius="2" :count="1024" />
     <OrbitControls />
     <TresDirectionalLight :position="[0, 2, 4]" :intensity="2" cast-shadow />
   </TresCanvas>

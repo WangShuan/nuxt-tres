@@ -1,4 +1,5 @@
 <template>
+  <Title>Nuxt3 & Tres.js Learning Collections</Title>
   <TresCanvas window-size shadows alpha clear-color="#000">
     <TresPerspectiveCamera :look-at="[0, 0, 0]" :position="[0, 20, 45]" />
     <Suspense>

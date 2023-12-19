@@ -1,0 +1,32 @@
+# 指定 Docker Compose 的版本
+version: '3'
+# 定義服務
+services:
+  # 服務名為 nuxt-tres
+  nuxt-tres:
+    # 使用 node:16.17.0 的 Docker 映像作為基礎
+    image: node:18.18.1
+    # 設定容器名稱，未來方便查看專案執行狀況
+    container_name: 'nuxt3_tres'
+    # 將本地的 ./.output 目錄映射到容器內的 /app 目錄
+    volumes:
+      - ./.output:/app
+    # 設定啟動應用程序的命令需要用的環境變量，以改變 Listening port
+    environment:
+      - NITRO_PORT=8080
+    # 設定啟動應用程序的命令
+    command: node /app/server/index.mjs
+    # 設定端口：主機端口 對到 容器端口(這樣就可以用“主機網址：主機端口”於電腦開啟該應用程序)
+    ports:
+      - 3000:8080
+    # 容器端口，docker 內部網路互相連線用的，另外也用於設定對外公開網址對應的 port
+    expose: 
+      - 8080
+#     # 套用下方定義的 docker 內部網路
+#     networks: 
+#       - tunnel
+# # 定義 docker 內部網路給上方用，這老公做的，用於連到老公買的網址
+# networks:
+#   tunnel:
+#     name: docker_tunnel
+#     external: true

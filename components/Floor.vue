@@ -18,7 +18,7 @@ const pbrTexture = await useTexture({
 })
 </script>
 
-<style>
+<style scoped>
 .description {
   box-sizing: border-box;
   font-size: 24px;

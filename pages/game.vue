@@ -35,7 +35,7 @@ definePageMeta({
 })
 </script>
 
-<style>
+<style scoped>
 .gameover {
   position: absolute;
   top: 0;
@@ -59,5 +59,17 @@ definePageMeta({
   border-radius: 8px;
   padding: 4px 8px;
   margin-top: 8px;
+}
+
+.description {
+  box-sizing: border-box;
+  font-size: 24px;
+  text-align: center;
+  font-weight: bold;
+  display: flex;
+  width: 80vw;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
 }
 </style>
