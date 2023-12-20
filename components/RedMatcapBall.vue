@@ -7,6 +7,6 @@ const pbrTexture = await useTexture({
 <template>
   <TresMesh :position="[-3, -2, 9]">
     <TresSphereGeometry :args="[1, 100, 100]" />
-    <TresMeshMatcapMaterial v-bind="pbrTexture" :displacement-scale="0.2" />
+    <TresMeshMatcapMaterial v-bind="pbrTexture" />
   </TresMesh>
 </template>

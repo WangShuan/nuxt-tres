@@ -1,13 +1,13 @@
 <template>
   <Title>Tres.js 滾動控制 animate loop(ScrollControls)</Title>
   <div class="tres">
-    <TresCanvas class="tres">
+    <TresCanvas alpha :clear-color="false" class="tres">
       <TresPerspectiveCamera :position="[0, 0, 4]" />
       <ScrollControls html-scroll v-model="progress">
-        <TresMesh ref="groupRef">
-          <Icosahedron :position="[0, 0, 0]">
+        <TresMesh ref="IcosahedronRef">
+          <Box :position="[-1, 0, 0]">
             <TresMeshNormalMaterial />
-          </Icosahedron>
+          </Box>
         </TresMesh>
       </ScrollControls>
     </TresCanvas>
@@ -29,30 +29,32 @@
 </template>
 
 <script setup>
-const groupRef = ref()
+const IcosahedronRef = ref()
 const progress = ref(0)
 const { onLoop } = useRenderLoop()
-onLoop(() => {
-  if (groupRef.value) {
-    groupRef.value.rotation.x = progress.value * 3
-    groupRef.value.rotation.y = progress.value * 3
-    groupRef.value.rotation.z = progress.value * 3
+onLoop(({ delta }) => {
+  IcosahedronRef.value.rotation.z += delta * 2
+  if (IcosahedronRef.value) {
+    IcosahedronRef.value.rotation.x = progress.value * 10
+    IcosahedronRef.value.rotation.y = progress.value * 10
+    IcosahedronRef.value.scale.x = progress.value - 0.5
+    IcosahedronRef.value.scale.y = progress.value - 0.5
+    IcosahedronRef.value.scale.z = progress.value - 0.5
+    IcosahedronRef.value.position.x = (progress.value - 0.5) * 5
+    IcosahedronRef.value.position.y = (progress.value - 0.5) * -2
+    IcosahedronRef.value.position.z = progress.value - 0.5
   }
 })
 </script>
 
 <style scoped>
 .tres {
-  width: 300px;
-  height: 300px;
+  width: 100vw;
+  height: 100vh;
   position: fixed;
   left: 0;
   top: 0;
   z-index: -1;
-}
-
-main {
-  color: #fff;
 }
 
 section {

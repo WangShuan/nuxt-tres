@@ -9,7 +9,7 @@
     <TresMesh>
       <TresBoxGeometry />
       <TresMeshStandardMaterial transparent :opacity="0" />
-      <Html center transform :distance-factor="1.5" :position="[0, -2, 0]">
+      <Html transform :distance-factor="1.5" :position="[0, -2, 0]">
       <div class="description">
         請使用滑鼠控制飛機位置，並通過鍵盤空白鍵發射方塊擊落障礙物，若飛機碰到障礙物則墜機並宣告遊戲失敗！
         <br>

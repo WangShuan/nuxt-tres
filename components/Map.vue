@@ -19,7 +19,7 @@
     <TresMesh cast-shadow :position="[-2, 0, 0]">
       <TresBoxGeometry :position="[0, 1, 0]" :args="[4, 6, 0.2]" />
       <TresMeshStandardMaterial transparent opacity="1" color="black" />
-      <Html center transform :distance-factor="4" :position="[0, 1, 0]" :scale="[0.75, 0.75, 0.75]">
+      <Html transform :distance-factor="4" :position="[0, 1, 0]" :scale="[0.75, 0.75, 0.75]">
       <div class="title">@tresjs/nuxt<br>Learning Demo</div>
 
       </Html>
@@ -46,7 +46,7 @@
     <TresMesh cast-shadow :position="[-2, 0, 0]">
       <TresBoxGeometry :position="[0, 0, 0]" :args="[4, 6, 0.2]" />
       <TresMeshLambertMaterial transparent opacity="1" color="#82DBC5" />
-      <Html center transform :distance-factor="4" :position="[0, 1, 0]" :scale="[0.75, 0.75, 0.75]">
+      <Html transform :distance-factor="4" :position="[0, 1, 0]" :scale="[0.75, 0.75, 0.75]">
       <div class="title">@tresjs/nuxt<br>Learning Notes</div>
 
       </Html>
@@ -73,7 +73,7 @@
     <TresMesh cast-shadow :position="[-2, 0, 0]">
       <TresBoxGeometry :position="[0, 1, 0]" :args="[4, 6, 0.2]" />
       <TresMeshStandardMaterial transparent opacity="1" color="yellow" />
-      <Html center transform :distance-factor="4" :position="[0, 1, 0]" :scale="[0.75, 0.75, 0.75]">
+      <Html transform :distance-factor="4" :position="[0, 1, 0]" :scale="[0.75, 0.75, 0.75]">
       <div class="title">Tres.js Shooting Game</div>
 
       </Html>

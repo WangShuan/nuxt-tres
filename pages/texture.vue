@@ -6,13 +6,20 @@
       <RedMatcapBall />
     </Suspense>
     <Suspense>
-      <RockMatcapBall />
+      <RockMapBall />
     </Suspense>
     <Suspense>
       <WaterMatcapBall />
     </Suspense>
-    <Stars :radius="2" :count="1024" />
+    <Stars :radius="2" :rotation="[0, yRotation, 0]" :count="1024" />
     <OrbitControls />
     <TresDirectionalLight :position="[0, 2, 4]" :intensity="2" cast-shadow />
   </TresCanvas>
 </template>
+
+<script setup>
+const yRotation = shallowRef(0)
+useRenderLoop().onLoop(({ delta }) => {
+  yRotation.value += 0.02 * delta
+})
+</script>
