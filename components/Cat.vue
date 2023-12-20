@@ -17,7 +17,6 @@ model.scale.z = 5
 model.position.y = -1.5
 const { actions } = useAnimations(animations, model)
 const currentAction = ref()
-console.log(actions)
 const setActions = (val) => {
   if (currentAction.value) {
     currentAction.value.stop()

@@ -101,7 +101,6 @@ onLoop(({ delta }) => {
     obstacles.value.forEach((obstacle, j) => {
       bullets.value.forEach((bullet, i) => {
         if (bullet && obstacle && calculateDistance(bullet, obstacle) < 0.05) {
-          console.log(calculateDistance(bullet, obstacle))
           bullets.value.splice(i, 1);
           obstacles.value.splice(j, 1);
         }

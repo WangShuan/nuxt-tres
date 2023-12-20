@@ -1,6 +1,6 @@
 <template>
   <Title>Tres.js 飛機打方塊小遊戲</Title>
-  <TresCanvas window-size alpha>
+  <TresCanvas window-size clear-color="#000" alpha>
     <TresPerspectiveCamera :position="[0, 0, 5]" />
     <Suspense>
       <Universe @setGameover="setGameover" />
