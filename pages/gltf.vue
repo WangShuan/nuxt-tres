@@ -3,37 +3,34 @@
   <TresCanvas window-size>
     <TresPerspectiveCamera :position="[0, 0, 10]" />
     <Suspense>
-      <primitive :object="model" />
+      <Cat :action="action" />
     </Suspense>
+    <TresMesh receive-shadow :rotate-x="-Math.PI / 2" :position="[0, -1.5, 0]">
+      <TresPlaneGeometry :args="[10, 8]" />
+      <TresMeshStandardMaterial />
+    </TresMesh>
     <OrbitControls />
     <TresDirectionalLight :position="[0, 2, 4]" :intensity="2" cast-shadow />
   </TresCanvas>
   <div class="btns">
-    <button @click="playAction('0TPose')">TPose</button>
-    <button @click="playAction('Grabbed')">Grabbed</button>
-    <button @click="playAction('Greeting')">Greeting</button>
-    <button @click="playAction('Iddle')">Iddle</button>
+    <button @click="setAction('TPose')">TPose</button>
+    <button @click="setAction('Idle')">Idle</button>
+    <button @click="setAction('Walk')">Walk</button>
+    <button @click="setAction('Run')">Run</button>
+    <button @click="setAction('Jump')">Jump</button>
+    <button @click="setAction('Greeting')">Greeting</button>
+    <button @click="setAction('Eat')">Eat</button>
+    <button @click="setAction('Sleep01')">Sleep01</button>
+    <button @click="setAction('Sleep02')">Sleep02</button>
+    <button @click="setAction('Sleep03')">Sleep03</button>
   </div>
 </template>
 
 <script setup>
-const { scene: model, animations } = await useGLTF(
-  '/models/ugly-naked-bunny.gltf',
-)
+const action = ref('TPose')
 
-model.position.y = -2
-
-const { actions } = useAnimations(animations, model)
-const currentAction = ref()
-
-const playAction = (name) => {
-  if (currentAction.value) {
-    currentAction.value.stop()
-  }
-  currentAction.value = actions[name]
-  currentAction.value.setLoop(2500, 1)
-  currentAction.value.clampWhenFinished = true
-  currentAction.value.play()
+const setAction = (a) => {
+  action.value = a
 }
 </script>
 
@@ -43,7 +40,6 @@ const playAction = (name) => {
   bottom: 0;
   right: 0;
   display: flex;
-  flex-direction: column;
 }
 
 button {

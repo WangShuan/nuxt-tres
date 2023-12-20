@@ -1,7 +1,7 @@
 <template>
   <Title>Tres.js Texture 用法</Title>
   <TresCanvas window-size>
-    <TresPerspectiveCamera :position="[0, 0, 30]" />
+    <TresPerspectiveCamera :position="[0, 0, 20]" />
     <Suspense>
       <RedMatcapBall />
     </Suspense>
