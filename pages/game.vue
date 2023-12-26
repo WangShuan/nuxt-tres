@@ -9,14 +9,13 @@
     <TresMesh>
       <TresBoxGeometry />
       <TresMeshStandardMaterial transparent :opacity="0" />
-      <Html transform :distance-factor="1.5" :position="[0, -2, 0]">
-      <div class="description">
-        請使用滑鼠控制飛機位置，並通過鍵盤空白鍵發射方塊擊落障礙物，若飛機碰到障礙物則墜機並宣告遊戲失敗！
-        <br>
-        Control the airplane's position using the mouse and shoot cubes to knock down obstacles with the spacebar on the keyboard. If the airplane collides with an obstacle, it will crash, and the game will be declared a failure!
-      </div>
-
-      </Html>
+      <HtmlByCientos transform :distance-factor="1.5" :position="[0, -2, 0]">
+        <div class="description">
+          請使用滑鼠控制飛機位置，並通過鍵盤空白鍵發射方塊擊落障礙物，若飛機碰到障礙物則墜機並宣告遊戲失敗！
+          <br>
+          Control the airplane's position using the mouse and shoot cubes to knock down obstacles with the spacebar on the keyboard. If the airplane collides with an obstacle, it will crash, and the game will be declared a failure!
+        </div>
+      </HtmlByCientos>
     </TresMesh>
     <Stars :radius="2" :count="1024" />
   </TresCanvas>
@@ -28,7 +27,7 @@
 </template>
 
 <script setup>
-import { Html } from '@tresjs/cientos';
+import { Html as HtmlByCientos } from '@tresjs/cientos';
 
 const gameover = ref(false)
 

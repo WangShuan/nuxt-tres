@@ -19,10 +19,9 @@
     <TresMesh cast-shadow :position="[-2, 0, 0]">
       <TresBoxGeometry :position="[0, 1, 0]" :args="[4, 6, 0.2]" />
       <TresMeshStandardMaterial transparent opacity="1" color="black" />
-      <Html transform :distance-factor="4" :position="[0, 1, 0]" :scale="[0.75, 0.75, 0.75]">
-      <div class="title">@tresjs/nuxt<br>Learning Demo</div>
-
-      </Html>
+      <HtmlByCientos transform :distance-factor="4" :position="[0, 1, 0]" :scale="[0.75, 0.75, 0.75]">
+        <div class="title">@tresjs/nuxt<br>Learning Demo</div>
+      </HtmlByCientos>
     </TresMesh>
   </TresGroup>
 
@@ -46,10 +45,9 @@
     <TresMesh cast-shadow :position="[-2, 0, 0]">
       <TresBoxGeometry :position="[0, 0, 0]" :args="[4, 6, 0.2]" />
       <TresMeshLambertMaterial transparent opacity="1" color="#82DBC5" />
-      <Html transform :distance-factor="4" :position="[0, 1, 0]" :scale="[0.75, 0.75, 0.75]">
-      <div class="title">@tresjs/nuxt<br>Learning Notes</div>
-
-      </Html>
+      <HtmlByCientos transform :distance-factor="4" :position="[0, 1, 0]" :scale="[0.75, 0.75, 0.75]">
+        <div class="title">@tresjs/nuxt<br>Learning Notes</div>
+      </HtmlByCientos>
     </TresMesh>
   </TresGroup>
 
@@ -73,10 +71,9 @@
     <TresMesh cast-shadow :position="[-2, 0, 0]">
       <TresBoxGeometry :position="[0, 1, 0]" :args="[4, 6, 0.2]" />
       <TresMeshStandardMaterial transparent opacity="1" color="yellow" />
-      <Html transform :distance-factor="4" :position="[0, 1, 0]" :scale="[0.75, 0.75, 0.75]">
-      <div class="title">Tres.js Shooting Game</div>
-
-      </Html>
+      <HtmlByCientos transform :distance-factor="4" :position="[0, 1, 0]" :scale="[0.75, 0.75, 0.75]">
+        <div class="title">Tres.js Shooting Game</div>
+      </HtmlByCientos>
     </TresMesh>
   </TresGroup>
 
@@ -84,7 +81,7 @@
 </template>
 
 <script setup>
-import { Html } from '@tresjs/cientos'
+import { Html as HtmlByCientos } from '@tresjs/cientos'
 
 // 調用父層改變燈光的事件（當模型走進門時觸發事件）
 const emit = defineEmits(['changeLight']);

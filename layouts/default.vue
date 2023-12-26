@@ -1,7 +1,7 @@
 <template>
   <header>
     <nav>
-      <NuxtLink to="/init">init</NuxtLink>
+      <NuxtLink to="/init">first scene</NuxtLink>
       <NuxtLink to="/loop">onLoop</NuxtLink>
       <NuxtLink to="/orbitcontrol">OrbitControls</NuxtLink>
       <NuxtLink to="/mouse">MouseParallax</NuxtLink>
