@@ -5,7 +5,7 @@ services:
   # 服務名為 nuxt-tres
   nuxt-tres:
     # 使用 node 的 Docker 映像作為基礎
-    image: node:18.18.1
+    image: node:21.5.0
     # 設定容器名稱，未來方便查看專案執行狀況
     container_name: 'nuxt3_tres'
     # 設定進入容器時，所在的資料夾
