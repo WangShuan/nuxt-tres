@@ -16,8 +16,8 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "@tresjs/cientos": "^3.6.0",
-    "@tresjs/nuxt": "^1.2.2",
+    "@tresjs/cientos": "^3.7.0",
+    "@tresjs/nuxt": "^2.0.2",
     "@tresjs/post-processing": "^0.7.0"
   }
 }

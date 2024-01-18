@@ -5,7 +5,7 @@ services:
   # 服務名為 nuxt-tres
   nuxt-tres:
     # 使用 node 的 Docker 映像作為基礎
-    image: node:21.5.0
+    image: node:20.11.0
     # 設定容器名稱，未來方便查看專案執行狀況
     container_name: 'nuxt3_tres'
     # 設定進入容器時，所在的資料夾
@@ -14,7 +14,8 @@ services:
     volumes:
       - ./:/app
     # 設定啟動應用程序時不執行任何命令，改成自己進入容器去執行 run dev
-    command: npm run dev
+    command: sleep infinity
+    # command: npm run dev
     # 設定端口：主機端口 對到 容器端口(這樣就可以用“主機網址：主機端口”於電腦開啟該應用程序)
     ports:
       - 3000:3000

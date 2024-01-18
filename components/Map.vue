@@ -1,24 +1,24 @@
 <template>
-  <TresMesh cast-shadow :position="[10, 1.6, 10]">
+  <TresMesh cast-shadow :position="[13, 1.6, 0]">
     <TresBoxGeometry :position="[0, 1, 0]" :args="[0.3, 6.2, 0.3]" />
     <TresMeshStandardMaterial color="white" />
   </TresMesh>
-  <TresMesh cast-shadow :position="[14, 1.6, 10]">
+  <TresMesh cast-shadow :position="[17, 1.6, 0]">
     <TresBoxGeometry :position="[0, 1, 0]" :args="[0.3, 6.2, 0.3]" />
     <TresMeshStandardMaterial color="white" />
   </TresMesh>
-  <TresMesh cast-shadow :position="[12, 4.55, 10]">
+  <TresMesh cast-shadow :position="[15, 4.55, 0]">
     <TresBoxGeometry :position="[0, 1, 0]" :args="[4, 0.3, 0.3]" />
     <TresMeshStandardMaterial color="white" />
   </TresMesh>
-  <TresGroup ref="tresjsHomeDoor" :position="[14, 1.5, 10]">
+  <TresGroup ref="tresjsHomeDoor" :position="[17, 1.5, 0]">
     <TresMesh cast-shadow :position="[-3.4, 0, 0]">
       <TresSphereGeometry :position="[0, 0, 0]" :args="[0.3, 64, 64]" />
       <TresMeshStandardMaterial color="white" />
     </TresMesh>
     <TresMesh cast-shadow :position="[-2, 0, 0]">
-      <TresBoxGeometry :position="[0, 1, 0]" :args="[4, 6, 0.2]" />
-      <TresMeshStandardMaterial transparent opacity="1" color="black" />
+      <TresBoxGeometry :position="[0, 0, 0]" :args="[4, 6, 0.2]" />
+      <TresMeshLambertMaterial transparent opacity="1" color="#000" />
       <HtmlByCientos transform :distance-factor="4" :position="[0, 1, 0]" :scale="[0.75, 0.75, 0.75]">
         <div class="title">@tresjs/nuxt<br>Learning Demo</div>
       </HtmlByCientos>
@@ -51,26 +51,26 @@
     </TresMesh>
   </TresGroup>
 
-  <TresMesh cast-shadow :position="[-19, 1.6, 5]">
+  <TresMesh cast-shadow :position="[-17, 1.6, 0]">
     <TresBoxGeometry :position="[0, 1, 0]" :args="[0.3, 6.2, 0.3]" />
     <TresMeshStandardMaterial color="white" />
   </TresMesh>
-  <TresMesh cast-shadow :position="[-15, 1.6, 5]">
+  <TresMesh cast-shadow :position="[-13, 1.6, 0]">
     <TresBoxGeometry :position="[0, 1, 0]" :args="[0.3, 6.2, 0.3]" />
     <TresMeshStandardMaterial color="white" />
   </TresMesh>
-  <TresMesh cast-shadow :position="[-17, 4.55, 5]">
+  <TresMesh cast-shadow :position="[-15, 4.55, 0]">
     <TresBoxGeometry :position="[0, 1, 0]" :args="[4, 0.3, 0.3]" />
     <TresMeshStandardMaterial color="white" />
   </TresMesh>
-  <TresGroup ref="tresjsShootingGame" :position="[-15, 1.5, 5]">
+  <TresGroup ref="tresjsShootingGame" :position="[-13, 1.5, 0]">
     <TresMesh cast-shadow :position="[-3.4, 0, 0]">
       <TresSphereGeometry :position="[0, 0, 0]" :args="[0.3, 64, 64]" />
       <TresMeshStandardMaterial color="white" />
     </TresMesh>
     <TresMesh cast-shadow :position="[-2, 0, 0]">
-      <TresBoxGeometry :position="[0, 1, 0]" :args="[4, 6, 0.2]" />
-      <TresMeshStandardMaterial transparent opacity="1" color="yellow" />
+      <TresBoxGeometry :position="[0, 0, 0]" :args="[4, 6, 0.2]" />
+      <TresMeshLambertMaterial transparent opacity="1" color="yellow" />
       <HtmlByCientos transform :distance-factor="4" :position="[0, 1, 0]" :scale="[0.75, 0.75, 0.75]">
         <div class="title">Tres.js Shooting Game</div>
       </HtmlByCientos>
@@ -88,7 +88,7 @@ const emit = defineEmits(['changeLight']);
 
 // 載入兔子模型
 const { scene: model, animations, nodes } = await useGLTF('/models/ugly-naked-bunny.gltf', { draco: true })
-// 設置兔子位置
+// 調整兔子位置
 model.position.y = -1.5
 // 遍歷 nodes 開啟模型的陰影
 for (let n in nodes) {
@@ -112,7 +112,7 @@ const tresjsHomeDoor = ref()
 const tresjsLearningNote = ref()
 const tresjsShootingGame = ref()
 const x = ref(0)
-const z = ref(18)
+const z = ref(22)
 const r = ref(Math.PI)
 const hasOpen = ref(false)
 
@@ -127,7 +127,7 @@ onLoop(() => {
     // 判斷模型是否走到門裡，執行開門的動畫並另開視窗進入網頁
     if (tresjsHomeDoor.value) {
       const p = { x: tresjsHomeDoor.value.position.x - 2, y: tresjsHomeDoor.value.position.y, z: tresjsHomeDoor.value.position.z }
-      if (calculateDistance(p1.value.position, p) <= 3) {
+      if (calculateDistance(p1.value.position, p) <= 3.5) {
         if (!hasOpen.value) {
           hasOpen.value = true
           emit('changeLight')
@@ -150,7 +150,7 @@ onLoop(() => {
     }
     if (tresjsLearningNote.value) {
       const p = { x: tresjsLearningNote.value.position.x - 2, y: tresjsLearningNote.value.position.y, z: tresjsLearningNote.value.position.z }
-      if (calculateDistance(p1.value.position, p) <= 3) {
+      if (calculateDistance(p1.value.position, p) <= 3.5) {
         if (!hasOpen.value) {
           hasOpen.value = true
           emit('changeLight')
@@ -173,7 +173,7 @@ onLoop(() => {
     }
     if (tresjsShootingGame.value) {
       const p = { x: tresjsShootingGame.value.position.x - 2, y: tresjsShootingGame.value.position.y, z: tresjsShootingGame.value.position.z }
-      if (calculateDistance(p1.value.position, p) <= 3) {
+      if (calculateDistance(p1.value.position, p) <= 3.5) {
         if (!hasOpen.value) {
           hasOpen.value = true
           emit('changeLight')
